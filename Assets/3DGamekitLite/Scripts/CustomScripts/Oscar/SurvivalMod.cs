@@ -1,20 +1,35 @@
+using System;
 using UnityEngine;
 
 public class SurvivalMod : MonoBehaviour
 {
     [SerializeField]
-    float thirstLevel = 100f;
+    private float thirstLevel = 100f;
+    [SerializeField]
+    private float thirstRate = 1f;
 
-    [SerializeField] private float thirstRate = 0.001f;
+    [SerializeField] private GameObject playerObject;
+
+    private bool thirsty = false;
+    private bool parched = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        thirstLevel -= thirstRate * Time.deltaTime;
+        thirstLevel -= Mathf.Clamp(thirstRate * Time.deltaTime, 0f, thirstLevel);
+        if (thirstLevel <= 50f && !thirsty)
+        {
+            Debug.Log("Im getting thirsty👅👅👅👅");
+            thirsty = true;
+        } else if (thirstLevel <= 15f && !parched)
+        {
+            Debug.Log("*golly gee willikers, it seems like im dying of thirst*");
+            parched = true;
+        }
     }
 }
