@@ -21,11 +21,11 @@ MonoBehaviour:
     Path: event:/TheWQorsteventinhstirot
   boxDestroyAudio:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -138603819
+      Data2: 1316348282
+      Data3: -626900345
+      Data4: -89560796
+    Path: event:/Thebesteventinhistory
   doorAudio:
     Guid:
       Data1: 0
